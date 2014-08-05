@@ -1,0 +1,48 @@
+﻿<Window x:Class="Abstracta.WMIMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WMI Monitor" Width="910" Height="560">
+    
+    <Canvas>
+
+        <Label Content="Namespace" Height="30" Canvas.Left="271" Canvas.Top="10" Width="78"/>
+        <TextBox Name="NamespaceText" Height="30" Canvas.Left="354" TextWrapping="Wrap" Text="" Canvas.Top="10" Width="217" LostFocus="OnNamespaceLostFocus"/>
+        
+        <Label Content="Servers" Height="30" Canvas.Left="10" Canvas.Top="10" Width="78"/>
+        <ComboBox Name="Servers" HorizontalAlignment="Left" Height="30" Width="199" VerticalAlignment="Top" Canvas.Left="67" Canvas.Top="10" SelectionChanged="OnWMIServerSelected" />
+
+        <Rectangle Fill="#FFF4F4F5" Height="475" Stroke="Black" Canvas.Left="0" Canvas.Top="45" Width="375"/>
+        <Label Content="Instances (WMI Objects)" Height="30" Canvas.Left="10" Canvas.Top="50" Width="165"/>
+        <TextBox Name="KeyProperty" Height="30" Canvas.Left="180" TextWrapping="Wrap" Text="" Canvas.Top="50" Width="146" LostFocus="OnKeyPropertyLostFocus"/>
+
+        <Button Name="RefreshObjects" Click="UpdateWMIObjects" Width="25" Height="25" Canvas.Left="340" Canvas.Top="50">
+            <Image Source="refresh.ico"></Image>
+        </Button>
+
+        <ListBox Name="InstanceList" SelectionChanged="OnWMIInstanceSelected" Width="355" Height="425" Canvas.Left="10" Canvas.Top="85"/>
+
+        <Rectangle Fill="#FFF4F4F5" Height="255" Stroke="Black" Canvas.Top="45" Width="512" Canvas.Left="380"/>
+        <Label Content="Properties" Height="30" Canvas.Left="390" Canvas.Top="50" Width="78"/>
+        <TextBox Name="PropertiesFilter" Height="30" Canvas.Left="478" TextWrapping="Wrap" Text="" Canvas.Top="50" Width="404" LostFocus="OnPropertiesLostFocus"/>
+        <Label Content="Values of selected WMI Object" Height="30" Canvas.Left="390" Canvas.Top="90" Width="201"/>
+        <TextBox Name="PropertiesValues" Height="171" Canvas.Left="390" Canvas.Top="120" TextWrapping="Wrap" Width="492"  />
+
+        <Button Name="CopyToClippboard" Content="Copy" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CopyDetailToClippboard" Width="78"  Height="25" Canvas.Left="695" Canvas.Top="90" />
+        <Button Name="GetXmlAndCopyToClippboard" Content="Copy XML" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GetWMIPropsAsXMLAndCopyToClippboard" Width="78"  Height="25" Canvas.Left="778" Canvas.Top="90" />
+        <Button Name="RefreshProperties" Click="UpdateWMIProperties" Width="25" Height="25" Canvas.Left="857" Canvas.Top="90">
+            <Image Source="refresh.ico"></Image>    
+        </Button>
+        
+        <Rectangle Fill="#FFF4F4F5" Height="215" Stroke="Black" Canvas.Top="305" Width="512" Canvas.Left="380"/>
+        <Label Content="Methods of selected WMI Object" Height="30" Canvas.Left="392" Canvas.Top="309" Width="201"/>
+        <Grid Name="Methods" Height="171" Canvas.Left="390" Canvas.Top="339" Width="492" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Label Content="Classes" Height="30" Canvas.Left="582" Canvas.Top="10" Width="78"/>
+        <ComboBox x:Name="Classes" HorizontalAlignment="Left" Height="30" Width="243" VerticalAlignment="Top" Canvas.Left="639" Canvas.Top="10" SelectionChanged="OnWMIClassSelected" />
+    </Canvas>
+</Window>

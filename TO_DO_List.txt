@@ -1,0 +1,2 @@
+﻿- run as service
+- log to database

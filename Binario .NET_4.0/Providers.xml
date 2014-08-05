@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<providers>
+  
+  <provider type="local">
+    <credential type="currentUser" />  
+  </provider>
+
+<!--
+  <provider type="remote" name="MachineName">
+    <credential type="authenticationByPassw" userName="user" password="passw"/>  
+  </provider>
+-->
+  
+<!--
+  <provider type="remote" name="192.168.240.143">
+    <credential type="currentUser" />
+  </provider>
+-->
+  
+</providers>
